@@ -1,0 +1,22 @@
+{
+  "name": "Cred Z",
+  "short_name": "CredZ",
+  "description": "Turn places into experiences",
+  "start_url": "./credz-app.html",
+  "display": "standalone",
+  "background_color": "#FDD835",
+  "theme_color": "#FDD835",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23FDD835'/%3E%3Ctext x='50%25' y='50%25' font-size='100' text-anchor='middle' dominant-baseline='middle' font-family='Arial'%3E✨%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%23FDD835'/%3E%3Ctext x='50%25' y='50%25' font-size='280' text-anchor='middle' dominant-baseline='middle' font-family='Arial'%3E✨%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
