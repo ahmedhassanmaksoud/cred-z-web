@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Cred Z - Turn Places Into Experiences</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#FDD835">
+    <link rel="manifest" href="manifest.json">
+    
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -1672,7 +1680,7 @@
     </div>
 
     <!-- BOTTOM NAVIGATION -->
-    <div class="bottom-nav">
+    <div class="bottom-nav" style="display: none;">
         <div class="nav-item active" onclick="showScreen('home')">
             <div class="nav-icon">🏠</div>
             <div class="nav-label">Explore</div>
@@ -1707,6 +1715,14 @@
             
             // Update nav
             updateNav(screenId);
+            
+            // Hide bottom nav on landing and onboarding screens
+            const bottomNav = document.querySelector('.bottom-nav');
+            if (screenId === 'landing' || screenId.includes('onboarding')) {
+                bottomNav.style.display = 'none';
+            } else {
+                bottomNav.style.display = 'flex';
+            }
         }
 
         function updateNav(screenId) {
@@ -1855,6 +1871,25 @@
                 setTimeout(() => e.target.classList.remove('bounce'), 600);
             }
         });
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+
+        // Check if running as PWA
+        function isPWA() {
+            return window.matchMedia('(display-mode: standalone)').matches || 
+                   window.navigator.standalone === true;
+        }
+
+        // Add visual indicator if running as PWA
+        if (isPWA()) {
+            console.log('Running as PWA - Full screen mode! 🎉');
+        }
     </script>
 
 </body>
